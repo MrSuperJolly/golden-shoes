@@ -1,0 +1,75 @@
+<div class = "container bg-white  py-3 my-3 border-bottom" >
+  <div class="row">
+      <div class="col-sm col-xl-7" id="product-img">
+          <img [src]="imgPath" class="img-fluid"  alt="Taylor_Shine">
+      </div>
+      <div class="col-sm col-xl-5">
+        <div class="container m-0 p-2" id = "product-options">
+          <div class="row">
+            <h1>{{title}}</h1>
+          </div>
+          <div class="row">
+            <h2 class= "text-muted"> £{{price}} </h2>
+          </div>
+          <div class=" my-5 row">
+            <form class="from-inline ">
+              <div class="form-row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="shoe_style">Style:</label>
+                    <select (change)="styleChange($event)" class="form-control" id="shoe_style">
+                      <option *ngFor="let variant of variants; let i = index" [value]="i"> {{variant.style}} </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="shoe_size">Size:</label>
+                    <select class="form-control" id="shoe_size">
+                        <option *ngFor="let shoeSize of shoeSizes;" [value]="shoeSize"> {{shoeSize}} </option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block rounded-0" *ngIf="inStock; else elseBlock">Add To Cart</button>
+                <ng-template #elseBlock><button type="submit" class="btn btn-danger btn-block rounded-0" disabled=" ">Not Available</button></ng-template>
+              </div>
+            </form>
+          </div>
+      </div>
+  </div>
+
+  <div class="row">
+
+      <div class="col-xl-7">
+          <h2>Description</h2>
+          <p class="text-muted lead">{{description}}</p>
+      </div>
+    <div class="col-xl-5">
+        <table class="table table-striped">
+          <tbody>
+          <tr>
+            <th scope ="row">Material</th>
+            <td>{{material}}</td>
+          </tr>
+          <tr>
+              <th scope ="row">Removable Insole</th>
+              <td>{{(removableInsole ? 'Yes' : 'No')}}</td>
+          </tr>
+          <tr>
+              <th scope ="row">Season</th>
+              <td>{{season}}</td>
+          </tr>
+          <tr *ngIf="heelHeight !== null">
+              <th  scope ="row">Heel Height</th>
+              <td>{{heelHeight}}</td>
+          </tr>
+
+          <tr *ngIf="heelHeight === null">
+            <th scope ="row">Heel Height</th>
+            <td>Flat</td>
+          </tr>
+        </tbody>
+        </table>
+    </div>
+  </div>
+</div>
