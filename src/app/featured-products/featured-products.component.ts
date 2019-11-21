@@ -14,6 +14,7 @@ export class FeaturedProductsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.productArray);
   }
 
 }

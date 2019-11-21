@@ -28,6 +28,7 @@ export class ProductTileComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.title = this.product.name;
     this.variants = this.product.variants;
     const defaultVariant: any = this.variants[0];
     this.updateDisplay(defaultVariant);
@@ -35,12 +36,11 @@ export class ProductTileComponent implements OnInit {
   }
 
   styleChange(event: any) {
-  this.selectedVariant = this.variants[event.target.value];
-  this.updateDisplay(this.selectedVariant);
+    this.selectedVariant = this.variants[event.target.value];
+    this.updateDisplay(this.selectedVariant);
   }
 
   updateDisplay(currentVariant) {
-    this.title = currentVariant.name;
     this.imgPath = currentVariant.main_img;
     this.shoeSizes = currentVariant.sizes;
     this.price = currentVariant.price;
