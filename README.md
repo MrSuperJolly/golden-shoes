@@ -25,3 +25,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+note you will need Node Package Manager and the Angular CLI to be able to build a run this project.
+
+1 extract the golden-shoe folder
+2 cd to the golden-shoe folder directory
+3 npm install
+4 ng serve
